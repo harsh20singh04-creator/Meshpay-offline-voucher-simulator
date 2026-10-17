@@ -1,4 +1,4 @@
-# MeshPay — UPI Without Internet
+# MeshPay — Offline UPI-Inspired Payment Simulator
 
 **A security-focused offline payment voucher and settlement simulator.**
 
