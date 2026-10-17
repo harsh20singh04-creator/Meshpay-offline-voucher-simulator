@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: meshpay-upi-offline
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev --no-audit --no-fund && npm run build && npm prune --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health/ready
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_NAME
+        value: upi_session
+      - key: MONGODB_URI
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: JWT_TTL
+        value: 12h
+      - key: DEMO_STARTING_BALANCE_PAISE
+        value: 500000
+      - key: MAX_TRANSFER_PAISE
+        value: 2000000
+      - key: OFFLINE_VOUCHER_TTL_HOURS
+        value: 72
